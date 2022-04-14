@@ -1,0 +1,157 @@
+{#{% extends 'base.html' %}#}
+{##}
+{#{% load crispy_forms_tags %}#}
+{#{% block body_block %}#}
+{#<style>#}
+{#td {#}
+{#    border: solid 2px lightgrey;#}
+{#}#}
+{#</style>#}
+{#    <div class="container">#}
+{#    <div class="main-body">#}
+{##}
+{#          <!-- Breadcrumb -->#}
+{##}
+{#          <!-- /Breadcrumb -->#}
+{##}
+{#          <div class="row gutters-sm mt-3">#}
+{#            <div class="col-md-4 mb-3">#}
+{#              <div class="card">#}
+{#                <div class="card-body">#}
+{#                  <div class="d-flex flex-column align-items-center text-center">#}
+{#                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">#}
+{#                    <div class="mt-3">#}
+{#                      <h4>{{ username }}</h4>#}
+{#                      <p class="text-secondary mb-1">{{ first_name }}</p>#}
+{#                      <p class="text-muted font-size-sm">{{ last_name}}</p>#}
+{##}
+{#                    </div>#}
+{#                  </div>#}
+{#                </div>#}
+{#              </div>#}
+{##}
+{#            </div>#}
+{#            <div class="col-md-8">#}
+{#              <div class="card mb-3">#}
+{#                <div class="card-body">#}
+{#                  <div class="row">#}
+{#                    <div class="col-sm-3">#}
+{#                      <h6 class="mb-0">Full Name</h6>#}
+{#                    </div>#}
+{#                    <div class="col-sm-9 text-secondary">#}
+{#                        {{ first_name }} {{ last_name }}#}
+{#                    </div>#}
+{#                  </div>#}
+{#                  <hr>#}
+{#                  <div class="row">#}
+{#                    <div class="col-sm-3">#}
+{#                      <h6 class="mb-0">Email</h6>#}
+{#                    </div>#}
+{#                    <div class="col-sm-9 text-secondary">#}
+{#                      {{ email }}#}
+{#                    </div>#}
+{#                  </div>#}
+{#                  <hr>#}
+{##}
+{#                </div>#}
+{#              </div>#}
+{##}
+{#              <div class="row gutters-sm">#}
+{#                <div class="col-sm-12 mb-6">#}
+{#                  <div class="card h-100">#}
+{#                      <div class="card-body">#}
+{#                <table id="datatablesSimple">#}
+{#                    <thead>#}
+{#                        <tr>#}
+{#                            <th>Coin</th>#}
+{#                            <th>Coin Quantity</th>#}
+{#                            <th>Coin Cap</th>#}
+{##}
+{#                        </tr>#}
+{#                    </thead>#}
+{##}
+{#                    <tbody>#}
+{#                    {% for i in coins %}#}
+{#                        <tr>#}
+{#                            <td class="align-middle">#}
+{##}
+{#                                &nbsp;{{ i.coin.coinCode }}</td>#}
+{#                            <td class="align-middle">{{ i.quantity }}</td>#}
+{#                            <td class="align-middle">${% widthratio i.coin.coinRate 1 i.quantity %}</td>#}
+{##}
+{#                        </tr>#}
+{#                    {% endfor %}#}
+{##}
+{#                    </tbody>#}
+{#                </table>#}
+{#            </div>#}
+{##}
+{##}
+{##}
+{##}
+{#                    <div class="card-body">#}
+{#                      <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Current</i>Crypto Holdings</h6>#}
+{#                      {% for i in coins %}#}
+{##}
+{#                        <small>{{ i.coin.coinCode }} | {{ i.quantity }} | ${% widthratio i.coin.coinRate 1 i.quantity %}</small>#}
+{#                      <div class="progress mb-3" style="height: 5px">#}
+{#                        <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>#}
+{#                      </div>#}
+{#                    {% endfor %}#}
+{##}
+{##}
+{#                    </div>#}
+{#                  </div>#}
+{#                </div>#}
+{##}
+{#              </div>#}
+{##}
+{##}
+{##}
+{#            </div>#}
+{#          </div>#}
+{##}
+{#        </div>#}
+{#    </div>#}
+{#    <h1>{{ username }}</h1>#}
+{#    <h3>{{ first_name }}</h3>#}
+{##}
+{#    {% for i in coins %}#}
+{#        <ul>#}
+{#            <li> {{ i }} </li>#}
+{#        </ul>#}
+{#    {% endfor %}#}
+{#{% endblock %}#}
+
+
+
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+      <div class="media">
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+        <div class="media-body">
+          <h2 class="account-heading">{{ user.username }}</h2>
+          <p class="text-secondary">{{ user.email }}</p>
+        </div>
+      </div>
+      <!-- FORM HERE -->
+    </div>
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block body_block %}
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Crypto Market Project Dashboard</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Today's Cryptocurrency Prices by Market Cap
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>Coin</th>
+                            <th>Coin Rate</th>
+                            <th>Coin Cap</th>
+                            <th>Coin Volume</th>
+{#                            <th>Graph</th>#}
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                    {% for i in coins %}
+                        <tr>
+                            <td class="align-middle">
+                                <a href={% url 'cryptostore:detail' i.coinCode %}>
+                                    <img  src={{ i.coinIcon }} alt="icon" class="img-fluid" style="height: 40%; width: auto;"/>
+                                &nbsp;{{ i.coinCode }}</a></td>
+                            <td class="align-middle">${{ i.coinRate }}</td>
+                            <td class="align-middle">${{ i.coinCap}}</td>
+                            <td class="align-middle">${{ i.coinVolume }}</td>
+{#                            <td class="align-middle">TBD</td>#}
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
